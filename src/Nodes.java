@@ -7,7 +7,8 @@ public class Nodes<T> {
     }
     public void Node(T obj, Nodes p, Nodes c){
         this.obj = obj;
-
+        this.p = p;
+        this.c = c;
     }
     public void Noder(T obj){
         this.obj = obj;
@@ -27,12 +28,12 @@ public class Nodes<T> {
         this.obj = obj;
     }
 
-    public void setParent(T obj){
-        p.obj = obj;
+    public void setParent(Nodes n){
+        this.p = n;
     }
 
-    public void setChild(T obj){
-        c.obj = obj;
+    public void setChild(Nodes n){
+        this.c = n;
     }
 
     public String toString(){
@@ -52,11 +53,24 @@ public class Nodes<T> {
 class Main{
     public static void main(String[] args) {
         int test_int = 13;
-        Nodes <Integer> int_node = new Nodes<Integer>();
-        int_node.setObj(test_int);
-        System.out.println(int_node.toString());
-        Nodes <Integer> pnode = new Nodes<Integer>();
-        Nodes <Integer> cnode = new Nodes<Integer>();
-        int_node.Node(int_node.getObj(), pnode, cnode);
+        int parent_int = 20;
+        int child_int = 10;
+
+        Nodes <Integer> intNode = new Nodes<Integer>();
+        intNode.setObj(test_int);
+        System.out.println(intNode.toString());
+
+        Nodes <Integer> parentNode = new Nodes<Integer>();
+        Nodes <Integer> childNode = new Nodes<Integer>();
+
+        parentNode.setObj(parent_int);
+        childNode.setObj(child_int);
+
+        intNode.setParent(parentNode);
+        intNode.setChild(childNode);
+
+        System.out.println("\nShould be Parent: \n" + intNode.getParent().toString());
+        System.out.println("\nShould be Child: \n" + intNode.getChild().toString());
+
     }
 }
