@@ -26,12 +26,21 @@ public class Nodes<T> {
     public void setObj(T obj){
         this.obj = obj;
     }
+
+    public void setParent(T obj){
+        p.obj = obj;
+    }
+
+    public void setChild(T obj){
+        c.obj = obj;
+    }
+
     public String toString(){
-        String s = "Node-type: " + this.getObj().getClass().getName();
+        String s = "Node-type: " + this.getObj().getClass().getName() + "\nNode-Value: " + this.getObj();
         return s;
     }
     public boolean nodeEquals(Nodes a, Nodes b){
-        if(a.equals(b)){
+        if(a.getObj().equals(b.getObj())){
             return true;
         }
         else {
@@ -45,7 +54,6 @@ class Main{
         int test_int = 13;
         Nodes <Integer> int_node = new Nodes<Integer>();
         int_node.setObj(test_int);
-        System.out.println(int_node.getObj());
         System.out.println(int_node.toString());
         Nodes <Integer> pnode = new Nodes<Integer>();
         Nodes <Integer> cnode = new Nodes<Integer>();
