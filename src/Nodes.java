@@ -1,3 +1,9 @@
+/*
+Jim Fahey
+9/28/20
+10/1/20
+This is a node data structure class. Everything is tested in main.
+ */
 public class Nodes<T> {
     private T obj;
     private Nodes p;
@@ -74,3 +80,4 @@ class Main{
 
     }
 }
+
